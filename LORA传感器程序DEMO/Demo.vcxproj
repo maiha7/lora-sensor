@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6A15847C-564C-850D-FF38-6B10EB4E010F}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Demo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\Debug\</OutDir>
+    <IntDir>obj\Debug\</IntDir>
+    <TargetName>Demo</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <IncludePath>$(VC_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>bin\Release\</OutDir>
+    <IntDir>obj\Release\</IntDir>
+    <TargetName>Demo</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <IncludePath>$(VC_IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_IAR_;__ICCARM__;_Pragma(x)=;__interrupt=;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;STM8L15x_StdPeriph_Driver\inc;Hardware;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;_IAR_;__ICCARM__;_Pragma(x)=;__interrupt=;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Hardware\DriverConfig.h" />
+    <ClInclude Include="Hardware\usart_t.h" />
+    <ClInclude Include="STM8L15x_StdPeriph_Driver\inc\stm8l15x.h" />
+    <ClInclude Include="stm8l15x_conf.h" />
+    <ClInclude Include="stm8l15x_it.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Hardware\Crc8.c" />
+    <ClCompile Include="Hardware\DriverConfig.c" />
+    <ClCompile Include="Hardware\apply.c" />
+    <ClCompile Include="Hardware\comconfig.c" />
+    <ClCompile Include="Hardware\ds18b20.c" />
+    <ClCompile Include="Hardware\flash.c" />
+    <ClCompile Include="Hardware\gy3x.c" />
+    <ClCompile Include="Hardware\iwdg.c" />
+    <ClCompile Include="Hardware\led.c" />
+    <ClCompile Include="Hardware\mq137.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Hardware\sht2x.c" />
+    <ClCompile Include="Hardware\sx1278.c" />
+    <ClCompile Include="Hardware\tim2.c" />
+    <ClCompile Include="Hardware\usart_t.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_adc.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_clk.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_dac.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_exti.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_flash.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_gpio.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_itc.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_iwdg.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_pwr.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_rtc.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_spi.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_syscfg.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_tim2.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_tim4.c" />
+    <ClCompile Include="STM8L15x_StdPeriph_Driver\src\stm8l15x_usart.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="stm8l15x_it.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
